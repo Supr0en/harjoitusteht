@@ -28,10 +28,12 @@ export default async function Sorter() {
       }
       for (let j = 0; j < playerScores.length; j++) {
          if (p1Scores[j].score > p2Scores[j].score) {
-               // players[j].wins += 1;
+            const p1 = players.findIndex(e => e.name === p1Scores[j].name);
+               players[p1].wins += 1;
                console.log(p1Scores[j]);
          } else if (p1Scores[j].score < p2Scores[j].score){
-               // players[j].wins += 1;
+            const p2 = players.findIndex(e => e.name === p2Scores[j].name);
+               players[p2].wins += 1;
                console.log(p2Scores[j]);
          }
       }
