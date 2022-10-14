@@ -12,7 +12,7 @@ export default function getPlayerScores() {
         ];
         const matches = [];
 
-        const matchCount = Math.floor(Math.random() * 10);
+        const matchCount = Math.floor(Math.random() * 100);
         for (let i = 0; i < matchCount; i++) {
             const p1Name = players[Math.floor(Math.random() * players.length)];
             let p2Name;
