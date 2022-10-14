@@ -9,3 +9,6 @@ Ohjelma käyttää tiedostosta playerScores.js functionia getPlayerScores. Tiedo
 #### Consts
 * player1/player2, pelaajan tietojen ottamiseen.
 * p1Index/p2Index, hakee pelaajan index valuen players arraysta.
+
+#### Ongelmat
+ En pystynyt testaamaan index.test.js tiedostoa käytäen antaa virhe koodin "SyntaxError: Cannot use import statement outside a module" yritin kattoa ratkaisua, en    löytänyt ratkaisua joka ei tarvitse tiedostojen muutamita.
