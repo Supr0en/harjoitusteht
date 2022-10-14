@@ -4,8 +4,10 @@ export default async function Sorter() {
    try {
       const playerScores = await getPlayerScores();
       let players = [];
-      let p1Scores = [];
-      let p2Scores = [];
+      let p1Data = [];
+      let p2Data = [];
+      let results = [];
+
       for (let i = 0; i < playerScores.length; i++) {
          const player1 = Object.entries(playerScores[i])[0];
          const player2 = Object.entries(playerScores[i])[1];
@@ -17,28 +19,32 @@ export default async function Sorter() {
                });
             }
          }
-         p1Scores.push({
+         p1Data.push({
             name: player1[0],
             score: player1[1]
          });
-         p2Scores.push({
+         p2Data.push({
             name: player2[0],
             score: player2[1]
          });
       }
+
       for (let j = 0; j < playerScores.length; j++) {
-         if (p1Scores[j].score > p2Scores[j].score) {
-            const p1 = players.findIndex(e => e.name === p1Scores[j].name);
-               players[p1].wins += 1;
-               console.log(p1Scores[j]);
-         } else if (p1Scores[j].score < p2Scores[j].score){
-            const p2 = players.findIndex(e => e.name === p2Scores[j].name);
-               players[p2].wins += 1;
-               console.log(p2Scores[j]);
+         if (p1Data[j].score > p2Scores[j].score) {
+            const p1Index = players.findIndex(e => e.name === p1Data[j].name);
+               players[p1Index].wins += 1;
+         } else if (p1Data[j].score < p2Scores[j].score){
+            const p2Index = players.findIndex(e => e.name === p2Scores[j].name);
+               players[p2Index].wins += 1;
          }
       }
-      console.log(playerScores);
-      console.log(players);
+      
+      for (let p = 0; p < players.length; p++){
+         players.sort((a, b) => {
+            return (b.wins - a.wins);
+         });
+         results.push(players[p].name);
+      }
    } catch (error) {
       console.error(`ERROR: ${error}`);
    }
