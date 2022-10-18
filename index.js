@@ -30,11 +30,11 @@ export default async function Sorter() {
       }
 
       for (let j = 0; j < playerScores.length; j++) {
-         if (p1Data[j].score > p2Scores[j].score) {
+         if (p1Data[j].score > p2Data[j].score) {
             const p1Index = players.findIndex(e => e.name === p1Data[j].name);
                players[p1Index].wins += 1;
-         } else if (p1Data[j].score < p2Scores[j].score){
-            const p2Index = players.findIndex(e => e.name === p2Scores[j].name);
+         } else if (p1Data[j].score < p2Data[j].score){
+            const p2Index = players.findIndex(e => e.name === p2Data[j].name);
                players[p2Index].wins += 1;
          }
       }
